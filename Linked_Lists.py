@@ -40,16 +40,6 @@ class Stack:
         return self.n == 0
 
 
-def test_stack():
-    print("-" * 100 + "Stack" + "-" * 100)
-    s = Stack()
-    for i in range(10):
-        s.push(i)
-    print(s)
-    while not s.is_empty():
-        print(s.pop())
-
-test_stack()
 class Queue:
 
     def __init__(self):
@@ -72,12 +62,12 @@ class Queue:
         self.n += 1
 
     def enqueue(self, data):
-        new_node=Node(data)
-        self.last.node=new_node
+        new_node = Node(data)
+        self.last.node = new_node
         self.last = new_node
         if self.is_empty():
-            self.first=self.last
-        self.n+=1
+            self.first = self.last
+        self.n += 1
 
     def __repr__(self):
         item = self.first
@@ -101,11 +91,26 @@ class Queue:
         return self.n == 0
 
 
-print("-" * 100 + "Queue" + "-" * 100)
-q = Queue()
+def test_stack():
+    print("-" * 100 + "Stack" + "-" * 100)
+    s = Stack()
+    for i in range(10):
+        s.push(i)
+    print(s)
+    while not s.is_empty():
+        print(s.pop())
 
-for i in range(5):
-    q.enqueue(i)
-print(q)
-while not q.is_empty():
-    print(q.dequeue())
+
+def test_queue():
+    print("-" * 100 + "Queue" + "-" * 100)
+    q = Queue()
+    for i in range(5):
+        q.enqueue(i)
+    print(q)
+    while not q.is_empty():
+        print(q.dequeue())
+
+
+test_stack()
+
+test_queue()
