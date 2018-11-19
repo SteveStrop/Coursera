@@ -1,4 +1,4 @@
-from random import randint
+import random
 
 
 def three_sum(a):
@@ -40,7 +40,8 @@ def three_sum_bin(a):
 
 
 def test_three_sum_bin():
-    a = [randint(-100000, 100000) for _ in range(1000)]
+    random.seed(900)
+    a = [random.randint(-100000, 100000) for _ in range(1000)]
     a = sorted(list(set(a)))
     print(three_sum_bin(a))
 

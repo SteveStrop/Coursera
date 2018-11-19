@@ -102,53 +102,9 @@ class Queue:
     #     self.n += 1
 
 
-def test_stack():
-    print("-" * 100 + "Stack" + "-" * 100)
-    s = Stack()
-    print(f"Newly instantiated Stack: {s}")
-    stack_size = 5
-    for i in range(stack_size):
-        s.push(i)
-    print(f"{stack_size} item stack:\n{s}")
-    print(f"Pop all {stack_size} elements")
-    while not s.is_empty():
-        print(s.pop())
-    print("\nPopping from an empty stack:")
-    print(s.pop())
-    print(s.pop())
-    print(f"Adding to the existing stack:")
-    s.push("new")
-    s.push("data")
-    print(s)
-    print("\nPopping from the stack:")
-    while not s.is_empty():
-        print(s.pop())
 
 
-def test_queue():
-    print("-" * 100 + "Queue" + "-" * 100)
-    q = Queue()
-    print(f"Newly instantiated queue is {q}")
-    queue_size = 5
-    for i in range(queue_size):
-        q.enqueue(i)
-    print(f"{queue_size} item queue:\n{q}")
-    print(f"Dequeue all {queue_size} elements")
-    while not q.is_empty():
-        print(q.dequeue())
-    print("\nDequeue-ing from an empty stack:")
-    print(q.dequeue())
-    print(q.dequeue())
-
-    print(f"Adding to the existing queue:")
-    q.enqueue("new")
-    q.enqueue("data")
-    print(q)
-    print("\nDequeue-ing from the queue:")
-    while not q.is_empty():
-        print(q.dequeue())
 
 
-test_stack()
 
-test_queue()
+
