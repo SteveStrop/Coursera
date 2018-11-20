@@ -42,6 +42,9 @@ class Stack:
         self.n -= 1
         return data
 
+    def peek(self):
+        return self.head.data
+
     def is_empty(self):
         return self.n == 0
 

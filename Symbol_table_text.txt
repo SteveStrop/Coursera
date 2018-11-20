@@ -1,0 +1,4 @@
+Immutable keys. We assume the keys do not change their values while in the symbol table.
+Replace-the-old-value policy. If a key–value pair is inserted into the symbol table that already associates another value with the given key, we adopt the convention that the new value replaces the old one.
+Not found. The method get() returns null if no value is associated with the specified key.
+Null keys and null values. Clients are not permitted to use null as either a key or value. This convention enables us to implement contains() as follows:

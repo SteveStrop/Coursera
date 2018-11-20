@@ -45,6 +45,7 @@ class Tests(TestCase):
         print(f"{stack_size} item stack:\n{s}")
         print(f"Pop all {stack_size} elements")
         while not s.is_empty():
+            print(f"about to pop {s.peek()}")
             print(s.pop())
         print("\nPopping from an empty stack:")
         print(s.pop())
