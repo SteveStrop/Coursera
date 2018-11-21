@@ -6,9 +6,9 @@ True 1 0
 False 2 1
 False 2 0
 
-fisrt line is number of states
+first line is number of states
 second line is alphabet
-subsequent lines are result and actions for each state/letter combo
+subsequent lines are result and actions for each state/letter combination
 
 """
 
@@ -32,3 +32,5 @@ print(f"Stages: {stages}")
 print(f"Alphabet: {alphabet}")
 print(f"Actions: {action}")
 print(f"Transitions: {next_state}")
+
+
