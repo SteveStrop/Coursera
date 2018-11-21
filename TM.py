@@ -66,27 +66,20 @@ class Tape:
         return result.strip("#")
 
 
-test_string = "1010+1111"
+test_string = "1110+1"
+numbers = test_string.split("+")
+
 t = Tape()
 t.load(test_string)
 state = 2
-step = 0
 while action[state] != "H":
-
-    print(f"step {step}")
-    print(f"At state {action[state]}({state})")
     inpt = t.read()
-    print(f"Reading {inpt} from Tape")
-    print(f"Writing {output[state][inpt]} to Tape")
     t.write(output[state][inpt])
-    print(f"Transitioning to {transition[state][inpt]}")
     state = transition[state][inpt]
     if action[state] == "L":
-        print("moving left")
         t.move_left()
     elif action[state] == "R":
-        print("moving right")
         t.move_right()
-    step += 1
-
-print(f"{test_string} = {t.read_tape()}")
+answer = t.read_tape()
+print(int(numbers[0], 2), "+", int(numbers[1], 2), "=", int(answer, 2))
+print(f"{test_string} = {answer}")
