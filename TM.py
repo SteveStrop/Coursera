@@ -1,27 +1,37 @@
+"""
+Sample data file (binary add):\n
+6  2                     (number of states N , start state)\n
+10+#                    (alphabet)\n
+L 1 0 4 0 0 1 # #       (state N transitions then N outputs per letter)\n
+L 1 1 3 1 1 0 + #\n
+R 2 2 2 0 1 0 + #\n
+L 3 2 3 2 0 1 + 1\n
+R 4 4 4 5 # 0 + #\n
+H 5 5 5 5 1 0 + #\n
+
+"""
+
 from Linked_Lists import Stack
 
-with open("TM.txt", "r")as f:
-    stages = int(f.readline())
-    alphabet = f.readline().rstrip("\n")
-    key_count = len(alphabet)
-    action = []
-    transition = []
-    output = []
 
-    for _ in range(stages):
-        t = {}
-        o = {}
+action = []
+transition = []
+output = []
+
+with open("TM.txt", "r")as f:
+    state_count, state = map(int, f.readline().split())
+    alphabet = f.readline().rstrip("\n")
+    alpha_count = len(alphabet)
+    for _ in range(state_count):
         data = f.readline().rstrip("\n").split()
         action.append(data[0])
-        for i in range(key_count):
-            t[alphabet[i]] = int(data[i + 1])
-            o[alphabet[i]] = data[i + key_count + 1]
-        transition.append(t)
+        t = {alphabet[i]: int(data[i + 1]) for i in range(alpha_count)}
+        o = {alphabet[i]: data[i + alpha_count + 1] for i in range(alpha_count)}  # alpha_count is offset to output
         output.append(o)
 
 
 def print_machine_defn():
-    print(f"Stages: {stages}")
+    print(f"Stages: {state_count}")
     print(f"Alphabet: {alphabet}")
     print(f"Actions: {action}")
     print(f"Outputs: {output}")
@@ -71,7 +81,6 @@ numbers = test_string.split("+")
 
 t = Tape()
 t.load(test_string)
-state = 2
 while action[state] != "H":
     inpt = t.read()
     t.write(output[state][inpt])

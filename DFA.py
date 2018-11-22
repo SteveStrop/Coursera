@@ -28,7 +28,7 @@ for letter in test_string:
     state = next_state[state][letter]
 print(action[state])
 
-print(f"Stages: {stages}")
+print(f"Stages: {state_count}")
 print(f"Alphabet: {alphabet}")
 print(f"Actions: {action}")
 print(f"Transitions: {next_state}")
